@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Position {left, right, up, down, front, none}
+
 public class PlayerFollowerScript : MonoBehaviour {
 	public Transform leftHand;
 	public Transform rightHand;
@@ -14,8 +16,7 @@ public class PlayerFollowerScript : MonoBehaviour {
 
 	public float closeHandDistance;
 	public float farHandDistance;
-
-	enum Position {left, right, up, down, front, none}
+		
 	private Position leftHandPosition = Position.none;
 	private Position rightHandPosition = Position.none;
 	private Position headPosition = Position.none; 
@@ -51,12 +52,15 @@ public class PlayerFollowerScript : MonoBehaviour {
 		else
 			rightHandPosition = Position.none;
 		// Check head angle
-		if ((head.eulerAngles.z > lookMaxAngle))
+		if (head.eulerAngles.z > angleToUp)
 			headPosition = Position.up;
-		else if ((head.eulerAngles.z < lookMaxAngle))
+		else if (head.eulerAngles.z < angleToDown)
 			headPosition = Position.down;
 	}
 
+	bool testPosition(Position rightTest, Position leftTest, Position headTest){
+		return headPosition == headTest && leftHandPosition == leftTest && rightHandPosition == rightTest;
+	}
 
 
 }
