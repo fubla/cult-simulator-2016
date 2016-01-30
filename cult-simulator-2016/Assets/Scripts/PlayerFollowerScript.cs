@@ -58,7 +58,7 @@ public class PlayerFollowerScript : MonoBehaviour {
 			headPosition = Position.down;
 	}
 
-	bool testPosition(Position rightTest, Position leftTest, Position headTest){
+	public bool testPosition(Position rightTest, Position leftTest, Position headTest){
 		return headPosition == headTest && leftHandPosition == leftTest && rightHandPosition == rightTest;
 	}
 
