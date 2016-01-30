@@ -14,7 +14,7 @@ public class CameraControls : MonoBehaviour {
     public float maximumY = 60F;
     public float neckLength = 2F;
     public float maxRotationSpeed = 5F;
-    Vector3 neckOffset;
+
     float rotationY = 0F;
     float rotationSpeed = 0F;
 
@@ -30,7 +30,6 @@ public class CameraControls : MonoBehaviour {
 
         characterPosition = transform.position;
         characterRotation = transform.rotation;
-        neckOffset = new Vector3(0F, -neckLength, 0F);
     }
 
     // Update is called once per frame
@@ -53,7 +52,7 @@ public class CameraControls : MonoBehaviour {
         transform.position = characterPosition;
         transform.rotation = characterRotation;
 
-        transform.RotateAround( characterPosition + neckOffset, Vector3.right, rotationY);
+        transform.RotateAround( characterPosition, Vector3.right, rotationY);
         //transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 
     }
