@@ -30,11 +30,10 @@ public class SimpleRandom : StateMachineBehaviour {
 
         // hashes not constant, cannot use switch case
         if (stateInfo.fullPathHash == Bow) {
-            newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.front);
+            newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.down);
 
         } else if (stateInfo.fullPathHash == LookUp) {
-            // FIXME: which position?
-            newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.none);
+            newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.up);
 
         // } else if (stateInfo.fullPathHash == Idle) {
         //    newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.none);
