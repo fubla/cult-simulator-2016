@@ -7,15 +7,16 @@ public class CameraControls : MonoBehaviour {
     public KeyCode lookDownKey = KeyCode.LeftShift;
     public KeyCode lookUpKey = KeyCode.Space;
     //public float sensitivityX = 0.1F;
-    public float sensitivityY = 1F;
+    public float rotationAcceleration = 0.1F;
     //public float minimumX = -360F;
     //public float maximumX = 360F;
     public float minimumY = -60F;
     public float maximumY = 60F;
-    public float neckLength = 2;
+    public float neckLength = 2F;
+    public float maxRotationSpeed = 5F;
     Vector3 neckOffset;
     float rotationY = 0F;
-    //float rotationSpeed = 0F;
+    float rotationSpeed = 0F;
 
     Vector3 characterPosition; // contains the real position and idle rotation
     Quaternion characterRotation; // contains the real position and idle rotation
@@ -34,12 +35,18 @@ public class CameraControls : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
         if (Input.GetKey (lookDownKey)) {
-            rotationY += sensitivityY;
+            rotationSpeed += rotationAcceleration;
         } else if (Input.GetKey (lookUpKey)) {
-            rotationY -= sensitivityY;
+            rotationSpeed -= rotationAcceleration;
+        } else {
+            rotationSpeed += (rotationSpeed > 0)? -rotationAcceleration: rotationAcceleration;
+            if (System.Math.Abs(rotationSpeed) <= rotationAcceleration) {
+                rotationSpeed = 0;
+            }
         }
+        rotationSpeed = Mathf.Clamp (rotationSpeed, -maxRotationSpeed, maxRotationSpeed);
+        rotationY += rotationSpeed;
         rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 
         // reset; currently doing this every frame
