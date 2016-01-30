@@ -9,7 +9,8 @@ BinaryAssets.meta
 [Ll]ibrary/
 sysinfo.txt
 *.stackdump
- 
+*.meta
+
  # ===================================== #
  # Visual Studio / MonoDevelop generated #
  # ===================================== #

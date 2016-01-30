@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &104078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 447518}
+  m_Layer: 0
+  m_Name: RightPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &117212
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,6 +63,7 @@ GameObject:
   - 33: {fileID: 3353056}
   - 135: {fileID: 13545040}
   - 23: {fileID: 2358398}
+  - 114: {fileID: 11443714}
   m_Layer: 0
   m_Name: RightShoulder
   m_TagString: Untagged
@@ -84,6 +100,7 @@ GameObject:
   - 33: {fileID: 3311404}
   - 135: {fileID: 13578744}
   - 23: {fileID: 2324602}
+  - 114: {fileID: 11428386}
   m_Layer: 0
   m_Name: LeftShoulder
   m_TagString: Untagged
@@ -103,8 +120,24 @@ GameObject:
   - 135: {fileID: 13526726}
   - 23: {fileID: 2348018}
   - 114: {fileID: 11461328}
+  - 114: {fileID: 11428460}
   m_Layer: 0
   m_Name: PlayerBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &183446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 409490}
+  m_Layer: 0
+  m_Name: LeftPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +161,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &409490
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 471106}
+  m_RootOrder: 4
 --- !u!4 &431646
 Transform:
   m_ObjectHideFlags: 1
@@ -140,6 +185,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 450834}
   m_RootOrder: 0
+--- !u!4 &447518
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.04999995, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 471106}
+  m_RootOrder: 3
 --- !u!4 &448858
 Transform:
   m_ObjectHideFlags: 1
@@ -190,6 +247,8 @@ Transform:
   - {fileID: 488218}
   - {fileID: 480602}
   - {fileID: 450834}
+  - {fileID: 447518}
+  - {fileID: 409490}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &480602
@@ -451,6 +510,60 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140696}
   m_Enabled: 1
+--- !u!114 &11428386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5ffed31584f467db35062939f33bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+  maxHoriz: 90
+  minHoriz: 270
+  maxVerti: 90
+  minVerti: 270
+  HorizontalAxisName: Horizontal
+  VerticalAxisName: Vertical
+--- !u!114 &11428460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ba290d62cc14f3eb63a4785c2f774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookDownKey: 304
+  lookUpKey: 32
+  rotationAcceleration: .100000001
+  minimumY: -60
+  maximumY: 60
+  neckLength: 0
+  maxRotationSpeed: 5
+--- !u!114 &11443714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5ffed31584f467db35062939f33bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+  maxHoriz: 90
+  minHoriz: 270
+  maxVerti: 90
+  minVerti: 270
+  HorizontalAxisName: Horizontal
+  VerticalAxisName: Vertical
 --- !u!114 &11461328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -462,17 +575,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244d810774a0c4ea09feeb7cb920df58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
-  head: {fileID: 0}
-  leftPosition: {fileID: 0}
-  rightPosition: {fileID: 0}
-  upPosition: {fileID: 0}
-  downPosition: {fileID: 0}
-  frontPosition: {fileID: 0}
+  leftHand: {fileID: 464332}
+  rightHand: {fileID: 448858}
+  head: {fileID: 450834}
+  leftPosition: {fileID: 409490}
+  rightPosition: {fileID: 447518}
+  upPosition: {fileID: 450834}
+  downPosition: {fileID: 471106}
+  frontPosition: {fileID: 450834}
   closeHandDistance: 0
   farHandDistance: 0
-  lookMaxAngle: 0
+  angleToUp: 0
+  angleToDown: 0
 --- !u!124 &12402836
 Behaviour:
   m_ObjectHideFlags: 1
