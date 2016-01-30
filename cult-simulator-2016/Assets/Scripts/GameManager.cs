@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 	public float currentTime = 0.0f;
 	public bool gameIsOver = false;
 
-	private PlayerFollowerScript pfs;
+	public PlayerFollowerScript pfs;
 	// Use this for initialization
 	void Start () {
 		if (gm == null) 
@@ -42,13 +42,11 @@ public class GameManager : MonoBehaviour {
 		if (musicAudioSource)
 			musicAudioSource.pitch = gameStartPitch;
 		scoreDisplay.text = score.ToString ();
-		if (pfs == null)
-			pfs = GameObject.FindGameObjectsWithTag("player").GetComponent<PlayerFollowerScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (pfs.testPosition(Position.front, Position.front, Position.none))
+		Debug.Log (pfs.testPosition (Position.front, Position.front, Position.none));
 	}
 
 	void GameOver () {
