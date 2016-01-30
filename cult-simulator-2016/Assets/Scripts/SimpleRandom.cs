@@ -35,7 +35,7 @@ public class SimpleRandom : StateMachineBehaviour {
         } else if (stateInfo.fullPathHash == LookUp) {
             newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.up);
 
-        // } else if (stateInfo.fullPathHash == Idle) {
+        } else if (stateInfo.fullPathHash == Idle) {
         //    newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.none);
 
         } else if (stateInfo.fullPathHash == HandsForward) {
