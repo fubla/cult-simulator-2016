@@ -3,11 +3,14 @@ using System.Collections;
 
 // Handles Cult random Animations and calls PoseCheck
 public class SimpleRandom : StateMachineBehaviour {
+    const int NumberOfAnimations = 7;
     static private int Bow           = Animator.StringToHash("Base Layer.metarig|bow");
     static private int LookUp        = Animator.StringToHash("Base Layer.metarig|lookUp");
     static private int Idle          = Animator.StringToHash("Base Layer.metarig|Idle");
     static private int HandsForward  = Animator.StringToHash("Base Layer.metarig|HandForward");
     static private int HandsSideways = Animator.StringToHash("Base Layer.metarig|handsSideways");
+    static private int HandsTogether = Animator.StringToHash("Base Layer.metarig|Handstogether");
+    static private int RightPointing = Animator.StringToHash("Base Layer.metarig|Pointing");
 
     // Animator.StringtoHash not marked as const?!
     // public enum AnimationNameHashes {
@@ -35,7 +38,7 @@ public class SimpleRandom : StateMachineBehaviour {
         } else if (stateInfo.fullPathHash == LookUp) {
             newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.up);
 
-        // } else if (stateInfo.fullPathHash == Idle) {
+        } else if (stateInfo.fullPathHash == Idle) {
         //    newSpeed = GameManager.gm.PoseCheck(Position.none, Position.none, Position.none);
 
         } else if (stateInfo.fullPathHash == HandsForward) {
@@ -43,6 +46,12 @@ public class SimpleRandom : StateMachineBehaviour {
 
         } else if (stateInfo.fullPathHash == HandsSideways) {
             newSpeed = GameManager.gm.PoseCheck(Position.left, Position.right, Position.none);
+
+        } else if (stateInfo.fullPathHash == HandsTogether) {
+            newSpeed = GameManager.gm.PoseCheck(Position.front, Position.front, Position.none);
+
+        } else if (stateInfo.fullPathHash == HandsTogether) {
+            newSpeed = GameManager.gm.PoseCheck(Position.none, Position.front, Position.none);
 
         } else {
             Debug.Log("Animation hash not found! not added or typoed!");
@@ -64,7 +73,7 @@ public class SimpleRandom : StateMachineBehaviour {
 
     // OnStateMachineEnter is called when entering a statemachine via its Entry Node
     override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash){
-        animator.SetInteger("Selector", randomGen.Next(5));
+        animator.SetInteger("Selector", randomGen.Next(NumberOfAnimations));
     }
 
     // OnStateMachineExit is called when exiting a statemachine via its Exit Node
